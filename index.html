@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love You 3000💗</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- PAGE 1: LOCKED ENTRANCE -->
+<section class="page active" id="page1">
+    <div class="welcome-card">
+        <div class="top-heart">💗</div>
+        <h1>A Little Surprise For You!</h1>
+        <p>Before entering, answer two little questions.</p>
+
+        <div class="question-box">
+            <label for="answer1">1. What is your nickname given by me?</label>
+            <input type="text" id="answer1" placeholder="Your answer...">
+        </div>
+
+        <div class="question-box">
+            <label for="answer2">2. What is my favourite nickname from you?</label>
+            <input type="text" id="answer2" placeholder="Your answer...">
+        </div>
+
+        <button onclick="checkAnswers()">Unlock My Surprise 🔐</button>
+        <p id="loginMessage" class="message"></p>
+    </div>
+</section>
+
+<!-- PAGE 2: BIRTHDAY + CAKE -->
+<section class="page" id="page2">
+
+    <!-- BIRTHDAY INTRO -->
+    <div class="birthday-heading">
+        <span class="sparkle">✨</span>
+        <h1 class="happy-birthday">Happy Birthday!</h1>
+        <h2 class="birthday-name">To My "Ami Kichu korini" 💗</h2>
+        <p class="birthday-wish">
+            May your life always be filled with happiness, laughter
+            and beautiful memories. You deserve all the love in the world!
+        </p>
+    </div>
+
+    <!-- BOW AND ARROW OVERLAY -->
+    <div id="cakeIntro" class="cake-intro">
+        <div class="intro-content">
+            <div class="intro-hearts">💗 ✨ 💙</div>
+            <h2>A Little More Surprise!</h2>
+            <p>Something sweet is waiting for you...</p>
+
+            <div class="archery-scene">
+                <div class="bow">🏹</div>
+                <div class="shooting-arrow">➜</div>
+                <div class="arrow-target">🎂</div>
+            </div>
+
+            <button id="releaseArrowBtn" onclick="releaseArrow()">
+                Release the Arrow 💘
+            </button>
+        </div>
+
+        <div class="curtain curtain-left"></div>
+        <div class="curtain curtain-right"></div>
+    </div>
+
+    <!-- CAKE CUTTING AREA -->
+    <div class="cake-section">
+        <h2 class="cake-heading">Your Birthday Cake! 🎂</h2>
+        <p>Make a wish and blow out the candles!</p>
+
+        <div class="cake-scene">
+            <div class="cake-plate"></div>
+
+            <div class="real-cake">
+                <div class="cake-top">
+                    <span>🍓</span>
+                    <span>🍒</span>
+                    <span>🍓</span>
+                </div>
+                <div class="cake-middle"></div>
+                <div class="cake-bottom"></div>
+
+                <div class="candles">
+                    <div class="real-candle"><div class="real-flame"></div></div>
+                    <div class="real-candle"><div class="real-flame"></div></div>
+                    <div class="real-candle"><div class="real-flame"></div></div>
+                </div>
+
+                <div class="cake-slice"></div>
+            </div>
+
+            <div class="cake-knife">🔪</div>
+        </div>
+
+        <div class="cake-buttons">
+            <button onclick="blowCandles()">Blow Candles 🌬️</button>
+            <button onclick="cutCake()">Cut the Cake 🍰</button>
+        </div>
+
+        <h2 id="cakeMessage" class="cake-message">
+            Make a beautiful wish! 💖
+        </h2>
+
+        <button onclick="startMusic()">Play Birthday Song 🎵</button>
+        <audio id="bgMusic" src="assets/song.mp3" loop></audio>
+
+        <button class="next-button" onclick="goToPage(3)">
+            Next: Our Memories →
+        </button>
+    </div>
+</section>
+
+<!-- PAGE 3: MEMORIES -->
+<section class="page" id="page3">
+    <h1 class="section-heading">Gallery of Memories 💞</h1>
+    <p class="section-subtitle">Every picture has a little story and a song.</p>
+
+    <div class="memory-gallery">
+
+        <div class="memory-card">
+            <img src="assets/photo1.jpg" alt="Memory 1">
+            <h3>Memory One 💗</h3>
+            <p>Do you know this girl?, khub marto amay. aj dekhte dekhte 25years bochor hoy gelo jai hok 2 masher boro holeo height amar theke 12 masher choto</p>
+            <audio class="memory-song" src="assets/memory1.mp3"></audio>
+            <button onclick="playMemorySong(this)">Play Memory Song 🎵</button>
+        </div>
+
+        <div class="memory-card">
+            <img src="assets/photo2.jpg" alt="Memory 2">
+            <h3>Memory Two 💙</h3>
+            <p>Chota pataka bara dhamaka.</p>
+            <audio class="memory-song" src="assets/memory2.mp3"></audio>
+            <button onclick="playMemorySong(this)">Play Memory Song 🎵</button>
+        </div>
+
+        <div class="memory-card">
+            <img src="assets/photo3.jpg" alt="Memory 3">
+            <h3>Memory Three 🌸</h3>
+            <p>Some memories never get old. Mone pore, teacher amar theke saree option nichilo </p>
+            <audio class="memory-song" src="assets/memory3.mp3"></audio>
+            <button onclick="playMemorySong(this)">Play Memory Song 🎵</button>
+        </div>
+
+        <div class="memory-card">
+            <img src="assets/photo4.jpg" alt="Memory 4">
+            <h3>Memory Four ✨</h3>
+            <p>Areh kakima, sob bhalo toh , photo ta dekhechis seraa lagche na</p>
+            <audio class="memory-song" src="assets/memory4.mp3"></audio>
+            <button onclick="playMemorySong(this)">Play Memory Song 🎵</button>
+        </div>
+
+        <div class="memory-card">
+            <img src="assets/photo5.jpg" alt="Memory 5">
+            <h3>Memory Five 🦋</h3>
+            <p>will try to be there (when you want to), And many more memories to come!</p>
+            <audio class="memory-song" src="assets/memory5.mp3"></audio>
+            <button onclick="playMemorySong(this)">Play Memory Song 🎵</button>
+        </div>
+
+    </div>
+
+    <div class="navigation-buttons">
+        <button onclick="goToPage(2)">← Back</button>
+        <button onclick="goToPage(4)">Next: My Video Message →</button>
+    </div>
+</section>
+
+<!-- PAGE 4: VIDEO MESSAGE -->
+<section class="page" id="page4">
+    <h1 class="section-heading">A Message From Me 💌</h1>
+    <p class="section-subtitle">A little something I wanted to tell you.</p>
+
+    <div class="video-container">
+        <video controls poster="assets/photo1.jpg">
+            <source src="assets/birthday-video.mp4" type="video/mp4">
+            Your browser does not support this video.
+        </video>
+    </div>
+
+    <div class="navigation-buttons">
+        <button onclick="goToPage(3)">← Back</button>
+        <button onclick="goToPage(5)">One Last Surprise →</button>
+    </div>
+</section>
+
+<!-- PAGE 5: GAMES -->
+<section class="page" id="page5">
+    <h1 class="section-heading">Let's Have Some Fun! 🎮</h1>
+
+    <div class="mood-game">
+        <h2>How Are You Feeling Today?</h2>
+        <p>Choose your mood and see what happens!</p>
+
+        <div class="mood-buttons">
+            <button onclick="chooseMood('angry')">😡 Angry</button>
+            <button onclick="chooseMood('love')">🥰 Feeling Loved</button>
+            <button onclick="chooseMood('peace')">😌 Peaceful</button>
+        </div>
+
+        <div id="moodResult" class="mood-result">
+            Choose a mood to begin 💗
+        </div>
+        <div id="moodEmoji" class="mood-emoji">😊</div>
+    </div>
+
+    <div class="catch-game">
+        <h2>Catch the Hearts & Chocolates! 🍫</h2>
+        <p>Move your bucket and catch as many as you can.</p>
+
+        <div id="gameArea">
+            <div id="bucket">🧺</div>
+        </div>
+
+        <p class="score-text">Score: <span id="score">0</span></p>
+        <button onclick="startCatchGame()">Start Game 🎮</button>
+        <p id="gameMessage"></p>
+        <p class="game-instructions">
+            Use your mouse, finger or keyboard arrow keys to move the bucket.
+        </p>
+    </div>
+
+    <button onclick="goToPage(1)">Back to Beginning ↺</button>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

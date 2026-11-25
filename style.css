@@ -1,0 +1,754 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ed78a5;
+    --light-pink: #ffe0eb;
+    --blue: #dceeff;
+    --dark-blue: #526b91;
+    --purple: #b99ae8;
+    --white: #ffffff;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe1ec, #dceeff);
+    color: #5b5268;
+    min-height: 100vh;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 12px 22px;
+    margin: 8px;
+    background: var(--pink);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px #d98aa955;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+    background: #d95e91;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 35px 18px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page.active {
+    display: block;
+}
+
+/* PAGE 1 */
+
+#page1 {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#page1.active {
+    display: flex;
+}
+
+.welcome-card {
+    width: min(100%, 480px);
+    padding: 35px 25px;
+    background: #ffffffdd;
+    border-radius: 25px;
+    box-shadow: 0 10px 35px #9e8ca633;
+}
+
+.top-heart {
+    font-size: 55px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.welcome-card h1 {
+    color: #d95e91;
+    margin: 15px 0;
+}
+
+.welcome-card > p {
+    margin-bottom: 20px;
+}
+
+.question-box {
+    text-align: left;
+    margin: 18px 0;
+}
+
+.question-box label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.question-box input {
+    width: 100%;
+    padding: 13px;
+    border: 2px solid #f4bfd4;
+    border-radius: 12px;
+    outline: none;
+    font-size: 15px;
+}
+
+.question-box input:focus {
+    border-color: var(--pink);
+}
+
+.message {
+    color: #d94e79;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+/* PAGE 2: BIRTHDAY HEADING */
+
+.birthday-heading {
+    max-width: 850px;
+    margin: 15px auto 35px;
+    padding: 20px;
+}
+
+.happy-birthday {
+    font-size: clamp(38px, 7vw, 75px);
+    font-weight: 900;
+    color: #e45c94;
+    letter-spacing: 2px;
+    text-shadow: 3px 4px 0 #ffc6df, 0 0 20px #ffffff;
+    animation:
+        birthdayBounce 2s ease-in-out infinite,
+        birthdayGlow 2.5s ease-in-out infinite alternate;
+    background: linear-gradient(90deg, #e45c94, #a88de5, #e45c94);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.birthday-name {
+    color: #7188b4;
+    margin: 15px 0;
+    animation: fadeUp 1.5s ease both;
+}
+
+.birthday-wish {
+    max-width: 650px;
+    margin: 12px auto;
+    line-height: 1.7;
+    animation: fadeUp 2s ease both;
+}
+
+.sparkle {
+    display: inline-block;
+    font-size: 35px;
+    animation: sparkle 2s infinite;
+}
+
+@keyframes birthdayBounce {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+@keyframes birthdayGlow {
+    from { background-position: 0% center; }
+    to { background-position: 200% center; }
+}
+
+@keyframes sparkle {
+    0%, 100% { transform: scale(1) rotate(0); }
+    50% { transform: scale(1.4) rotate(20deg); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* BOW AND ARROW OVERLAY */
+
+#page2 {
+    position: relative;
+}
+
+.cake-intro {
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    min-height: 100%;
+    background: linear-gradient(135deg, #ffdce8, #dceeff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 103;
+    text-align: center;
+    padding: 25px;
+    width: 100%;
+    transition: opacity 0.5s ease;
+}
+
+.intro-content h2 {
+    color: #d94f83;
+    font-size: clamp(25px, 5vw, 38px);
+    margin: 15px 0;
+}
+
+.intro-content p {
+    color: var(--dark-blue);
+    margin-bottom: 20px;
+}
+
+.intro-hearts {
+    font-size: 30px;
+    animation: heartbeat 2s infinite;
+}
+
+.archery-scene {
+    position: relative;
+    height: 125px;
+    max-width: 400px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bow {
+    font-size: 80px;
+    transform: rotate(-15deg);
+    z-index: 2;
+}
+
+.shooting-arrow {
+    position: absolute;
+    left: 50%;
+    top: 35px;
+    font-size: 55px;
+    opacity: 0;
+    z-index: 3;
+}
+
+.arrow-target {
+    position: absolute;
+    right: 0;
+    font-size: 40px;
+}
+
+.cake-intro button {
+    background: #ed77a5;
+    padding: 15px 28px;
+    font-size: 16px;
+}
+
+.curtain {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffc8df, #cce6ff);
+    z-index: 102;
+    transition: transform 1.2s ease-in-out;
+}
+
+.curtain-left {
+    left: 0;
+}
+
+.curtain-right {
+    right: 0;
+}
+
+.cake-intro.shooting .shooting-arrow {
+    opacity: 1;
+    animation: arrowShoot 0.8s ease-in forwards;
+}
+
+@keyframes arrowShoot {
+    0% {
+        transform: translateX(0) scale(1);
+    }
+    100% {
+        transform: translateX(220px) scale(1.2);
+    }
+}
+
+.cake-intro.opening .curtain-left {
+    transform: translateX(-100%);
+}
+
+.cake-intro.opening .curtain-right {
+    transform: translateX(100%);
+}
+
+.cake-intro.opening .intro-content {
+    opacity: 0;
+}
+
+.cake-intro.finished {
+    display: none;
+}
+
+/* CAKE */
+
+.cake-section {
+    max-width: 750px;
+    margin: 20px auto;
+    padding: 25px 15px;
+    background: #ffffffb8;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px #a88de533;
+}
+
+.cake-heading {
+    color: #d95e91;
+    margin-bottom: 10px;
+}
+
+.cake-section > p {
+    margin-bottom: 20px;
+}
+
+.cake-scene {
+    height: 300px;
+    max-width: 400px;
+    margin: 20px auto;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.cake-plate {
+    position: absolute;
+    bottom: 15px;
+    width: 310px;
+    height: 22px;
+    background: linear-gradient(#fff, #cbdcf1);
+    border-radius: 50%;
+    box-shadow: 0 6px 10px #8c8c8c55;
+}
+
+.real-cake {
+    position: relative;
+    width: 260px;
+    height: 155px;
+    margin-bottom: 32px;
+    transition: transform 0.5s;
+}
+
+.cake-top {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(#fff2f7, #f6a9cb);
+    border-radius: 50%;
+    border: 3px solid #f3a3c4;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 22px;
+    z-index: 2;
+}
+
+.cake-middle {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    height: 85px;
+    background: linear-gradient(90deg, #d77ba5, #f5c0d5, #d77ba5);
+    border-radius: 12px 12px 20px 20px;
+    border-bottom: 8px solid #b85e8a;
+}
+
+.cake-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 48px;
+    background: linear-gradient(#f9d4e4, #e89cbe);
+    border-radius: 12px 12px 18px 18px;
+    border-bottom: 5px solid #c77ca1;
+}
+
+.candles {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    z-index: 5;
+}
+
+.real-candle {
+    position: relative;
+    width: 10px;
+    height: 48px;
+    border-radius: 4px;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff 0 5px,
+        #8ebce8 5px 10px
+    );
+}
+
+.real-flame {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 11px;
+    height: 19px;
+    background: radial-gradient(#fff9a8, #ff9b36, #ff6c4b);
+    border-radius: 50% 50% 50% 50%;
+    animation: flame 0.4s infinite alternate;
+    box-shadow: 0 0 14px #ffb347;
+}
+
+@keyframes flame {
+    from { transform: scale(1) rotate(-5deg); }
+    to { transform: scale(0.8) rotate(6deg); }
+}
+
+.cake-slice {
+    position: absolute;
+    right: -5px;
+    top: 30px;
+    width: 65px;
+    height: 70px;
+    background: linear-gradient(135deg, #f6bfd7, #d980a9);
+    border: 3px solid #bd7197;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translate(0, 0) rotate(0);
+    transition: all 1s ease;
+    z-index: 6;
+}
+
+.cake-knife {
+    position: absolute;
+    right: 5%;
+    top: 25%;
+    font-size: 45px;
+    opacity: 0;
+    transform: rotate(-35deg);
+}
+
+.cake-scene.cut .cake-slice {
+    opacity: 1;
+    transform: translate(70px, 55px) rotate(15deg);
+}
+
+.cake-scene.cut .cake-knife {
+    opacity: 1;
+    animation: knifeCut 0.8s ease;
+}
+
+@keyframes knifeCut {
+    0% { transform: translate(-60px, -20px) rotate(-35deg); }
+    100% { transform: translate(0, 0) rotate(-35deg); }
+}
+
+.cake-scene.blown .real-flame {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.cake-message {
+    color: #d95e91;
+    margin: 20px 0;
+    min-height: 35px;
+}
+
+.cake-message.celebrate {
+    animation: birthdayBounce 1s ease-in-out infinite;
+}
+
+/* CONFETTI */
+
+.confetti {
+    position: fixed;
+    top: -30px;
+    z-index: 200;
+    pointer-events: none;
+    font-size: 22px;
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(110vh) rotate(700deg);
+        opacity: 0;
+    }
+}
+
+/* PAGE 3: MEMORIES */
+
+.section-heading {
+    color: #d95e91;
+    font-size: clamp(28px, 5vw, 42px);
+    margin: 20px 0 10px;
+}
+
+.section-subtitle {
+    margin-bottom: 25px;
+    color: var(--dark-blue);
+}
+
+.memory-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    max-width: 1150px;
+    margin: 25px auto;
+}
+
+.memory-card {
+    background: #ffffffdf;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 8px 20px #9b8bb333;
+    transition: transform 0.3s;
+}
+
+.memory-card:hover {
+    transform: translateY(-7px);
+}
+
+.memory-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.memory-card h3 {
+    color: #d95e91;
+    margin: 12px 0;
+}
+
+.memory-card p {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* PAGE 4: VIDEO */
+
+.video-container {
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 12px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px #9b8bb333;
+}
+
+.video-container video {
+    display: block;
+    width: 100%;
+    max-height: 500px;
+    border-radius: 12px;
+    background: #222;
+}
+
+/* PAGE 5: GAMES */
+
+.mood-game,
+.catch-game {
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 25px 15px;
+    border-radius: 22px;
+    background: #ffffffd9;
+    box-shadow: 0 8px 25px #9b8bb333;
+}
+
+.mood-game h2,
+.catch-game h2 {
+    color: #d95e91;
+    margin-bottom: 12px;
+}
+
+.mood-buttons {
+    margin: 15px 0;
+}
+
+.mood-result {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #7188b4;
+}
+
+.mood-emoji {
+    font-size: 65px;
+    margin: 15px;
+    animation: heartbeat 1.5s infinite;
+}
+
+#gameArea {
+    height: 350px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    border: 3px dashed #edb1ca;
+    border-radius: 15px;
+    background: linear-gradient(#e6f4ff, #ffeaf2);
+    touch-action: none;
+}
+
+#bucket {
+    position: absolute;
+    bottom: 5px;
+    left: 45%;
+    font-size: 45px;
+    user-select: none;
+    touch-action: none;
+}
+
+.falling-item {
+    position: absolute;
+    top: -35px;
+    font-size: 27px;
+    pointer-events: none;
+}
+
+.score-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d95e91;
+}
+
+.game-instructions {
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.navigation-buttons {
+    margin: 25px 0;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 600px) {
+    .page {
+        padding: 22px 12px;
+    }
+
+    .welcome-card {
+        padding: 25px 18px;
+    }
+
+    .birthday-heading {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .cake-section {
+        padding: 20px 10px;
+    }
+
+    .cake-scene {
+        transform: scale(0.85);
+        transform-origin: top center;
+        margin-bottom: -20px;
+    }
+
+    .memory-gallery {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .memory-card img {
+        height: 250px;
+    }
+
+    .mood-buttons button {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    #gameArea {
+        height: 300px;
+    }
+
+    .curtain {
+        width: 50%;
+    }
+
+    .arrow-target {
+        right: 3px;
+    }
+}
+
+@media (max-width: 380px) {
+    .happy-birthday {
+        font-size: 34px;
+        letter-spacing: 0;
+    }
+
+    .cake-scene {
+        transform: scale(0.72);
+        margin-bottom: -45px;
+    }
+
+    .intro-content {
+        padding: 12px;
+    }
+
+    .bow {
+        font-size: 60px;
+    }
+
+    button {
+        font-size: 13px;
+        padding: 11px 16px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .memory-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
